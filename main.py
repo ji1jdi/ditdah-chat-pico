@@ -36,6 +36,14 @@ tx_emitter.on("off", led.off)
 rx_emitter.on("on", led.on)
 rx_emitter.on("off", led.off)
 
+tx_indicator = LED(Pin(settings.TX_INDICATOR_PIN, Pin.OUT))
+tx_emitter.on("on", tx_indicator.on)
+tx_emitter.on("off", tx_indicator.off)
+
+rx_indicator = LED(Pin(settings.RX_INDICATOR_PIN, Pin.OUT))
+rx_emitter.on("on", rx_indicator.on)
+rx_emitter.on("off", rx_indicator.off)
+
 def setup_wifi():
     wifi = WIFI(settings.WIFI_MODE)
 
